@@ -2,13 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ocgxy6xwd55j" path="res://characters/cow_herdable.gd" id="1_rl5um"]
 [ext_resource type="Texture2D" uid="uid://cc10qlxyphodn" path="res://assets/Animals/Cow/purple-cow-sprites.png" id="2_bkqrt"]
-[ext_resource type="Script" uid="uid://bnstdpl1kngws" path="res://ai/tasks/actions/pick_wander_destination.gd" id="3_bkqrt"]
-[ext_resource type="Script" uid="uid://c5f0dees6qgah" path="res://ai/tasks/conditions/bt_check_mouse_nearby.gd" id="3_whvud"]
-[ext_resource type="Script" uid="uid://bhie7s0yu5fhk" path="res://ai/tasks/actions/pick_flee_destination.gd" id="4_2vl37"]
-[ext_resource type="Script" uid="uid://b22uf88petnxk" path="res://ai/tasks/actions/bt_herdable_flee.gd" id="4_10l4l"]
-[ext_resource type="Script" uid="uid://bft2sbny71am5" path="res://ai/tasks/actions/walk_to_destination.gd" id="4_i7h0f"]
+[ext_resource type="BehaviorTree" uid="uid://delb5mdr08qse" path="res://ai/trees/bst_basic_cow.tres" id="3_rl5um"]
 [ext_resource type="FontFile" uid="uid://bp48q5jn6sunb" path="res://assets/UI/fonts/MonsterFriendFore.otf" id="4_whvud"]
-[ext_resource type="Script" uid="uid://c5k3knxu5ibgh" path="res://ai/tasks/actions/bt_herdable_graze.gd" id="8_2vl37"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vc6la"]
 radius = 6.0
@@ -303,63 +298,15 @@ radius = 15.033297
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_bkqrt"]
 
-[sub_resource type="BTCondition" id="BTCondition_2vl37"]
-script = ExtResource("3_whvud")
-mouse_flee_radius = 80.0
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_i7h0f"]
 
-[sub_resource type="BTAction" id="BTAction_e4ek4"]
-custom_name = "PickFleeDestination"
-script = ExtResource("4_2vl37")
-flee_distance = 70.0
-
-[sub_resource type="BTAction" id="BTAction_2vl37"]
-script = ExtResource("4_10l4l")
-flee_speed = 45.0
-veer = 60.0
-
-[sub_resource type="BTSequence" id="BTSequence_e4ek4"]
-custom_name = "Flee"
-children = [SubResource("BTCondition_2vl37"), SubResource("BTAction_e4ek4"), SubResource("BTAction_2vl37")]
-
-[sub_resource type="BTAction" id="BTAction_2r2sf"]
-script = ExtResource("3_bkqrt")
-
-[sub_resource type="BTAction" id="BTAction_10l4l"]
-script = ExtResource("4_i7h0f")
-
-[sub_resource type="BTSequence" id="BTSequence_60ou7"]
-custom_name = "Wander"
-children = [SubResource("BTAction_2r2sf"), SubResource("BTAction_10l4l")]
-metadata/_weight_ = 0.25
-
-[sub_resource type="BTDelay" id="BTDelay_2vl37"]
-seconds = 0.5
-children = [SubResource("BTSequence_60ou7")]
-metadata/_weight_ = 0.25
-
-[sub_resource type="BTAction" id="BTAction_60ou7"]
-script = ExtResource("8_2vl37")
-
-[sub_resource type="BTSequence" id="BTSequence_iws4x"]
-custom_name = "Graze"
-children = [SubResource("BTAction_60ou7")]
-
-[sub_resource type="BTDelay" id="BTDelay_2r2sf"]
-seconds = 0.5
-children = [SubResource("BTSequence_iws4x")]
-
-[sub_resource type="BTProbabilitySelector" id="BTProbabilitySelector_2vl37"]
-children = [SubResource("BTDelay_2vl37"), SubResource("BTDelay_2r2sf")]
-
-[sub_resource type="BTSequence" id="BTSequence_ssuix"]
-children = [SubResource("BTProbabilitySelector_2vl37")]
-
-[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_iws4x"]
-children = [SubResource("BTSequence_e4ek4"), SubResource("BTSequence_ssuix")]
+[sub_resource type="BTSubtree" id="BTSubtree_whvud"]
+subtree = ExtResource("3_rl5um")
+blackboard_plan = SubResource("BlackboardPlan_i7h0f")
 
 [sub_resource type="BTRepeat" id="BTRepeat_whvud"]
 forever = true
-children = [SubResource("BTDynamicSelector_iws4x")]
+children = [SubResource("BTSubtree_whvud")]
 
 [sub_resource type="BehaviorTree" id="BehaviorTree_2vl37"]
 blackboard_plan = SubResource("BlackboardPlan_bkqrt")
@@ -367,7 +314,7 @@ root_task = SubResource("BTRepeat_whvud")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_t8qks"]
 
-[node name="CowHerdable" type="CharacterBody2D" unique_id=1245950768 groups=["animals"]]
+[node name="CowHerdable" type="CharacterBody2D" unique_id=1245950768]
 light_mask = 2
 collision_layer = 2
 collision_mask = 7

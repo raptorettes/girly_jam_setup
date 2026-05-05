@@ -1,6 +1,5 @@
 extends BTAction
 
-@export var flee_speed: float = 50.0
 @export var mouse_flee_radius: float = 60.0
 @export var veer: float = 90.0
 @export var debug: bool = true
@@ -42,7 +41,7 @@ func _tick(delta: float) -> int:
 	var clamped_angle = clamp(angle_to_flee, -max_rad, max_rad)
 	var move_dir = nav_dir.rotated(clamped_angle)
 
-	animal.velocity = move_dir * flee_speed
+	animal.velocity = move_dir * animal.flee_speed
 	animal.move_and_slide()
 
 	if move_dir.x < 0:
@@ -51,7 +50,7 @@ func _tick(delta: float) -> int:
 		animal.sprite.flip_h = false
 
 	animal.state_machine.travel("walk_right")
-	animal.anim_player.speed_scale = flee_speed / animal.move_speed
+	animal.anim_player.speed_scale = animal.flee_speed / animal.move_speed
 
 	if debug:
 		_draw_debug(animal, nav_dir, flee_dir, move_dir, dist_to_mouse)
