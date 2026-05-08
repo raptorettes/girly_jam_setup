@@ -1,7 +1,7 @@
 extends BTAction
 
-@export var min_time: float = 4.0
-@export var max_time: float = 7.0
+@export var min_time: float = 2.0
+@export var max_time: float = 5.0
 @export var chew_chance: float = 0.2
 
 var _timer: float = 0.0

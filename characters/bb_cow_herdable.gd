@@ -11,8 +11,9 @@ extends CharacterBody2D
 var favourite_spot : Vector2 = Vector2.ZERO
 var is_fleeing : bool = false
 @export var move_speed = 45.0
-@export var flee_speed = 60.0
+@export var flee_speed = 55.0
 @export var skittishness = 1.0
+@export var is_wanderer: bool = false
 
 	
 func move_to(target: Vector2) -> void:
@@ -25,10 +26,4 @@ func set_anim_state(state: StringName) -> void:
 	anim_tree["parameters/conditions/" + state] = true
 
 func _physics_process(delta: float) -> void:
-	if is_fleeing:  # set true/false by the BT action
-		return
-	if nav_agent.is_navigation_finished():
-		return
-	var next = nav_agent.get_next_path_position()
-	set_velocity((next - global_position).normalized() * move_speed)
 	move_and_slide()

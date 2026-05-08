@@ -3,7 +3,10 @@ extends BTAction
 @export var mouse_flee_radius: float = 60.0
 @export var veer: float = 90.0
 @export var debug: bool = true
-@export var max_flee_duration: float = 1.5  # seconds before forcing re-eval
+@export var min_flee_duration: float = 2.0  
+@export var max_flee_duration: float = 4.0  
+var _flip_cooldown: float = 0.0
+@export var flip_cooldown_time: float = 0.3
 
 var _elapsed: float = 0.0
 
@@ -16,15 +19,13 @@ func _tick(delta: float) -> int:
 		return FAILURE
 		
 	var animal = scene_root
-
 	var player = animal.get_tree().get_first_node_in_group("player")
 	if player == null:
 		return SUCCESS
 
 	var mouse_pos = player.world_mouse_pos
-
 	var dist_to_mouse = animal.global_position.distance_to(mouse_pos)
-	if dist_to_mouse > mouse_flee_radius:
+	if _elapsed >= min_flee_duration and dist_to_mouse > mouse_flee_radius * 1.5:
 		return SUCCESS
 
 	if animal.nav_agent.is_navigation_finished():
@@ -42,12 +43,9 @@ func _tick(delta: float) -> int:
 	var move_dir = nav_dir.rotated(clamped_angle)
 
 	animal.velocity = move_dir * (animal.flee_speed * animal.skittishness)
-	animal.move_and_slide()
 
-	if move_dir.x <= 0:
-		animal.sprite.flip_h = true
-	elif move_dir.x > 0:
-		animal.sprite.flip_h = false
+
+	_update_facing(animal, move_dir, delta)
 
 	animal.state_machine.travel("walk_right")
 	animal.anim_player.speed_scale = animal.flee_speed / animal.move_speed
@@ -56,6 +54,17 @@ func _tick(delta: float) -> int:
 		_draw_debug(animal, nav_dir, flee_dir, move_dir, dist_to_mouse)
 
 	return RUNNING
+
+func _update_facing(animal, direction: Vector2, delta: float) -> void:
+	_flip_cooldown -= delta
+	if _flip_cooldown > 0.0:
+		return
+	if abs(direction.x) > 0.3:
+		if direction.x < 0:
+			animal.sprite.flip_h = true
+		elif direction.x > 0:
+			animal.sprite.flip_h = false
+		_flip_cooldown = flip_cooldown_time
 
 func _draw_debug(animal: Node2D, nav_dir: Vector2, flee_dir: Vector2, move_dir: Vector2, dist_to_mouse: float) -> void:
 	var origin = animal.global_position
@@ -75,6 +84,7 @@ func _draw_debug(animal: Node2D, nav_dir: Vector2, flee_dir: Vector2, move_dir: 
 	
 func _exit() -> void:
 	var animal = scene_root
+	animal.velocity = Vector2.ZERO 
 	animal.is_fleeing = false
 	animal.skittishness = 1.0
 	animal.state_machine.travel("idle_right")

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bfb0saatjqd4x" path="res://ai/tasks/actions/bt_peck.gd" id="3_8px3q"]
 [ext_resource type="Script" uid="uid://u5j0ydibw5ye" path="res://ai/tasks/actions/bt_chick_herdable_flee.gd" id="3_kbybk"]
 [ext_resource type="Script" uid="uid://bnstdpl1kngws" path="res://ai/tasks/actions/pick_wander_destination.gd" id="4_bh75p"]
-[ext_resource type="Script" uid="uid://bft2sbny71am5" path="res://ai/tasks/actions/walk_to_destination.gd" id="5_04b4u"]
+[ext_resource type="Script" uid="uid://bs6vke8b3qh0f" path="res://ai/tasks/actions/chick_walk_to_destination.gd" id="5_kbybk"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_b7ce8"]
 var/nav_region/name = &"nav_region"
@@ -31,12 +31,12 @@ children = [SubResource("BTCondition_k88l5"), SubResource("BTAction_ik1sy"), Sub
 [sub_resource type="BTAction" id="BTAction_svrbv"]
 script = ExtResource("4_bh75p")
 
-[sub_resource type="BTAction" id="BTAction_f7g07"]
-script = ExtResource("5_04b4u")
+[sub_resource type="BTAction" id="BTAction_sre4h"]
+script = ExtResource("5_kbybk")
 
 [sub_resource type="BTSequence" id="BTSequence_kunnc"]
 custom_name = "Wander"
-children = [SubResource("BTAction_svrbv"), SubResource("BTAction_f7g07")]
+children = [SubResource("BTAction_svrbv"), SubResource("BTAction_sre4h")]
 metadata/_weight_ = 0.25
 
 [sub_resource type="BTDelay" id="BTDelay_ixttl"]
