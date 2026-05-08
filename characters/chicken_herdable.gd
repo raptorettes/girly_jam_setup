@@ -8,8 +8,8 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 var favourite_spot : Vector2 = Vector2.ZERO
 var is_fleeing : bool = false
-@export var move_speed = 50.0
-@export var flee_speed = 60.0
+@export var move_speed = 45.0
+@export var flee_speed = 55.0
 
 @export var get_down_duration: float = 1.8
 @export var get_up_duration: float = 0.8

@@ -10,8 +10,8 @@ extends CharacterBody2D
 
 var favourite_spot : Vector2 = Vector2.ZERO
 var is_fleeing : bool = false
-@export var move_speed = 45.0
-@export var flee_speed = 55.0
+@export var move_speed = 40.0
+@export var flee_speed = 50.0
 @export var skittishness = 1.0
 @export var is_wanderer: bool = false
 
