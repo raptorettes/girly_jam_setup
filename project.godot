@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="wild-thyme"
+config/name="wild-thyme_BLANK"
 run/main_scene="uid://rftcf6km7fmx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.60784316, 0.83137256, 0.7647059, 1)
