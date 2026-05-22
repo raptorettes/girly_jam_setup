@@ -319,6 +319,7 @@ light_mask = 2
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_rl5um")
+flee_speed = 38.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1129224646]
 path_desired_distance = 10.0

@@ -1,8 +1,6 @@
 [gd_scene format=4 uid="uid://byutox5k673a5"]
 
-[ext_resource type="Script" uid="uid://bcse2oua8ntxm" path="res://levels/game_level.gd" id="1_3n2a7"]
 [ext_resource type="Texture2D" uid="uid://cs16yxa30ohqn" path="res://assets/Tilesets/ground tiles/water frames/Water.png" id="1_d65c1"]
-[ext_resource type="PackedScene" uid="uid://duh4dqmehsp4y" path="res://characters/cat-thyme.tscn" id="1_qc6i3"]
 [ext_resource type="Texture2D" uid="uid://drafk8xgcpne" path="res://assets/Tilesets/ground tiles/New tiles/Darker_Grass_Hills_Tiles_v2.png" id="3_2i5ty"]
 [ext_resource type="TileSet" uid="uid://bry1qn1uqwip4" path="res://tilesets/plants.tres" id="3_876hk"]
 [ext_resource type="Texture2D" uid="uid://bp2bcwyqon3xn" path="res://assets/Tilesets/ground tiles/New tiles/Darker_Grass_Hill_Tiles_Slopes_v2.png" id="3_n0b0m"]
@@ -15,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bqnkurorwa6ft" path="res://assets/Tilesets/Building parts/Wooden_House_Roof_Tilset.png" id="9_n7yt8"]
 [ext_resource type="Texture2D" uid="uid://bxbi6sb540k3r" path="res://assets/Tilesets/Building parts/door animation sprites.png" id="10_876hk"]
 [ext_resource type="Texture2D" uid="uid://cg2mmcbmmwobp" path="res://assets/Tilesets/Building parts/Wooden_Bridge_v2.png" id="10_o8r0f"]
-[ext_resource type="PackedScene" uid="uid://ewhc7c08paxa" path="res://objects/apple.tscn" id="11_643jo"]
+[ext_resource type="PackedScene" uid="uid://b01gjksfpehx" path="res://scenes/capybara.tscn" id="10_vgcik"]
 [ext_resource type="Texture2D" uid="uid://1tqphsooi1kl" path="res://assets/Tilesets/Building parts/Animal Structures/Barn structures.png" id="12_4edbn"]
 [ext_resource type="Texture2D" uid="uid://b6o3sg11til85" path="res://assets/Tilesets/Building parts/Animal Structures/Chikcen_Houses.png" id="13_876hk"]
 [ext_resource type="Texture2D" uid="uid://doy6vabwv3tic" path="res://assets/Tilesets/Building parts/Animal Structures/Water tray.png" id="14_vgcik"]
@@ -26,11 +24,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="24_u8278"]
 [ext_resource type="PackedScene" uid="uid://bjjkiv45k1a1s" path="res://levels/pause_menu.tscn" id="25_dwws4"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="25_ujje3"]
-[ext_resource type="PackedScene" uid="uid://epvi6v6e0j6y" path="res://characters/bb_cow.tscn" id="25_vgcik"]
-[ext_resource type="PackedScene" uid="uid://dx6m8ghifwkfb" path="res://characters/chicken.tscn" id="28_52gom"]
-[ext_resource type="PackedScene" uid="uid://cl2oh1nhx1oj1" path="res://characters/cow_herdable.tscn" id="32_hrrti"]
-[ext_resource type="PackedScene" uid="uid://buqc5p6cimpad" path="res://objects/pear.tscn" id="33_hrrti"]
-[ext_resource type="PackedScene" uid="uid://bq7xp2uc66oil" path="res://objects/yellow-fleur.tscn" id="34_txx3f"]
+[ext_resource type="PackedScene" uid="uid://ccg5f51ck73ux" path="res://scenes/flower_girl.tscn" id="25_vgcik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmvb7"]
 texture = ExtResource("1_d65c1")
@@ -517,23 +511,6 @@ texture = ExtResource("16_3n2a7")
 sources/0 = SubResource("TileSetAtlasSource_hrrti")
 sources/1 = SubResource("TileSetAtlasSource_txx3f")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hrrti"]
-radius = 72.249565
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n2a7"]
-size = Vector2(26, 29)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_txx3f"]
-radius = 95.524864
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwws4"]
-size = Vector2(17.59375, 18.53125)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_smjyf"]
-size = Vector2(147.5, 117.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kbwn"]
-
 [sub_resource type="Resource" id="Resource_a775j"]
 script = ExtResource("25_ujje3")
 
@@ -553,7 +530,6 @@ agent_radius = 15.0
 
 [node name="GameLevel" type="Node2D" unique_id=931376677]
 y_sort_enabled = true
-script = ExtResource("1_3n2a7")
 
 [node name="NON Y SORT" type="Node" parent="." unique_id=20901205]
 
@@ -592,6 +568,9 @@ tile_set = SubResource("TileSet_3n7cs")
 z_index = -1
 tile_map_data = PackedByteArray("AAACAAIAAAAEAAQAAAAPAAEAAgAEAAAAAAAPAAIAAgAAAAAAAAAQAAAAAgADAAAAAAAQAAEAAgAFAAAAAAALAAMAAgADAAAAAAAPAAQAAgAAAAAAAAAcAAQAAgAEAAQAAAAdAAUAAgAEAAQAAAAdAAIAAgAGAAQAAAAeAAQAAgAGAAQAAAAfAAMAAgAHAAQAAAABAAwAAgAAAAIAAAALAAwAAgACAAIAAAAPAAoAAgACAAIAAAABAAIAAAADAAIAAAD8/wIAAAACAAQAAAD//wsAAgACAAIAAADt//L/AgACAAIAAADy//b/AgACAAIAAADg//b/AgACAAIAAADe//n/AgACAAIAAADh//D/AgABAAIAAADi//H/AgAJAAMAAADh//z/AgAKAAQAAADr/+7/AgADAAMAAADi//L/AgAAAAQAAADs//f/AgAAAAQAAADk//v/AgACAAIAAADl//X/AgACAAIAAADr//z/AgABAAIAAAATAOX/AgAEAAQAAAATAOb/AgAIAAQAAAAUAOf/AgABAAIAAAARAO3/AgAAAAEAAAASAO7/AgAAAAEAAAATAO//AgAAAAIAAAAUAOz/AgAAAAIAAAAUAO//AgAAAAIAAAAUAPL/AgAAAAIAAAATAPP/AgALAAQAAAARAPP/AgABAAEAAAAIAPD/AgACAAEAAAAHAO//AgAEAAQAAAAEAO3/AgAIAAMAAAACAOv/AgAFAAEAAAAGAO//AgAJAAMAAAAFAOj/AgAJAAMAAAAHAOb/AgABAAEAAAANAOX/AgAFAAEAAAAQAOn/AgAEAAQAAAAMAOf/AgAAAAIAAAAJAPH/AgAJAAMAAAAIAPH/AgAKAAQAAAAOAPf/AgABAAEAAAAEAPD/AgAEAAQAAAAFAO3/AgAJAAMAAAAFAO7/AgAAAAIAAAAEAPH/AgALAAMAAAACAO7/AgAIAAMAAAAGAOv/AgALAAMAAAAHAOz/AgACAAEAAAAQAPL/AgAEAAQAAAAPAPX/AgAAAAMAAAAPAPb/AgAAAAEAAAAQAPb/AgABAAEAAAARAPb/AgAIAAQAAAAXAPD/AgABAAEAAAAYAO//AgAAAAMAAAAXAOz/AgAIAAMAAAAVAOr/AgADAAEAAAAGAPb/AgADAAEAAAAPAOT/AgABAAIAAAAOAOT/AgAEAAQAAAANAOT/AgAKAAQAAAAMAOP/AgADAAMAAAANAPH/AgADAAEAAAAQAOv/AgAKAAQAAAAKAOf/AgAAAAQAAAAQAO//AgALAAMAAAAJAO3/AgAAAAMAAAASAOr/AgACAAIAAAARAOf/AgACAAIAAAAOAOb/AgAKAAQAAADe//v/AgAAAAQAAADn//3/AgAAAAQAAAARAAEAAgABAAAAAAAUAAMAAgAAAAAAAAAJABQAAgAAAAMAAAAKABMAAgAAAAMAAAAKABUAAgAAAAMAAAALABMAAgADAAMAAAATABEAAgAEAAMAAAATABIAAgAGAAMAAAAUABQAAgALAAQAAAAVABQAAgAIAAQAAAAVABUAAgAEAAQAAAAWABEAAgAHAAMAAAAWABMAAgAIAAQAAAAYABMAAgAGAAQAAAABABAAAgAHAAMAAAD9/wEAAAAEAAQAAAD9/wMAAAAEAAQAAAD+/wMAAAADAAQAAAD//wIAAAABAAQAAAATABMAAgACAAIAAAASABMAAgAIAAMAAAAWABUAAgAHAAQAAAA=")
 tile_set = ExtResource("3_876hk")
+
+[node name="Capybara" parent="NON Y SORT" unique_id=1859774129 instance=ExtResource("10_vgcik")]
+position = Vector2(157, -18)
 
 [node name="building_ground" type="TileMapLayer" parent="." unique_id=1935323339]
 y_sort_enabled = true
@@ -638,86 +617,10 @@ text = "You found secret cow"
 process_mode = 3
 visible = false
 
-[node name="FavoriteSpots" type="Node" parent="." unique_id=1247922434]
-
-[node name="Spot1-oak" type="Node2D" parent="FavoriteSpots" unique_id=1602409549 groups=["favourite_spot"]]
-position = Vector2(339, -245)
-
-[node name="Spot2-peach" type="Node2D" parent="FavoriteSpots" unique_id=1668560893 groups=["favourite_spot"]]
-position = Vector2(67, -327)
-
-[node name="Spot3-well" type="Node2D" parent="FavoriteSpots" unique_id=1003005758 groups=["favourite_spot"]]
-position = Vector2(134, 63)
-
-[node name="Spot4-trough" type="Node2D" parent="FavoriteSpots" unique_id=1168246180 groups=["favourite_spot"]]
-position = Vector2(345, 69)
-
-[node name="Spot5-meadowhard" type="Node2D" parent="FavoriteSpots" unique_id=406453418 groups=["favourite_spot"]]
-position = Vector2(-408, -266)
-
-[node name="Spot6-distantmeadow" type="Node2D" parent="FavoriteSpots" unique_id=747608518 groups=["favourite_spot"]]
-position = Vector2(-252, -220)
-
-[node name="Enclosure1" type="Area2D" parent="." unique_id=1146847243]
-position = Vector2(216.99998, -340.99997)
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosure1" unique_id=244251846]
-rotation = 3.3383791
-scale = Vector2(0.9636519, 0.9636519)
-shape = SubResource("CircleShape2D_hrrti")
-
-[node name="NightTriggerArea1" type="Area2D" parent="." unique_id=254705965]
-position = Vector2(151, -359)
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NightTriggerArea1" unique_id=178730366]
-shape = SubResource("RectangleShape2D_3n2a7")
-
-[node name="EnclosureExit1" type="Node2D" parent="." unique_id=984199758 groups=["enclosure_exit"]]
-position = Vector2(202, -206)
-
-[node name="Enclosure2" type="Area2D" parent="." unique_id=813447361]
-position = Vector2(-378, -115.00001)
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosure2" unique_id=1515270673]
-rotation = -0.11209659
-shape = SubResource("CircleShape2D_txx3f")
-
-[node name="NightTriggerArea2" type="Area2D" parent="." unique_id=1682994989]
-position = Vector2(-423.79688, -120.265625)
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NightTriggerArea2" unique_id=1476933922]
-shape = SubResource("RectangleShape2D_dwws4")
-
-[node name="EnclosureExit2" type="Node2D" parent="." unique_id=1540182946 groups=["enclosure_exit"]]
-position = Vector2(-320, -257)
-
-[node name="Enclosure3" type="Area2D" parent="." unique_id=1444470522]
-visible = false
-visibility_layer = 4
-position = Vector2(259.25, 71.25)
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosure3" unique_id=1209854919]
-shape = SubResource("RectangleShape2D_smjyf")
-
-[node name="NightTriggerArea3" type="Area2D" parent="." unique_id=1080575905]
-position = Vector2(200, 72)
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NightTriggerArea3" unique_id=1285897687]
-shape = SubResource("RectangleShape2D_0kbwn")
-
-[node name="EnclosureExit3" type="Node2D" parent="." unique_id=105766205 groups=["enclosure_exit"]]
-position = Vector2(161, 215)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1872238816]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(-345, -229)
+position = Vector2(127, -63)
 zoom = Vector2(4, 4)
 limit_enabled = false
 
@@ -729,183 +632,29 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="FollowPlayerCam" type="Node2D" parent="." unique_id=999340384 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-345, -229)
+position = Vector2(127, -63)
 script = ExtResource("24_u8278")
 priority = 1
 follow_mode = 2
-follow_target = NodePath("../cat-thyme")
+follow_target = NodePath("../FlowerGirl")
 zoom = Vector2(4, 4)
 tween_resource = SubResource("Resource_a775j")
 follow_damping = true
 follow_damping_value = Vector2(0.3, 0.3)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="NightCamera" type="Node2D" parent="." unique_id=128476981 node_paths=PackedStringArray("follow_target")]
+[node name="NightCamera" type="Node2D" parent="." unique_id=128476981]
 top_level = true
 position = Vector2(216.99998, -340.99997)
 script = ExtResource("24_u8278")
 follow_mode = 2
-follow_target = NodePath("../Enclosure1/CollisionShape2D")
 zoom = Vector2(6, 6)
 tween_resource = SubResource("Resource_o7lc7")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="cat-thyme" parent="." unique_id=117357209 instance=ExtResource("1_qc6i3")]
-y_sort_enabled = false
-position = Vector2(-345, -229)
-collision_mask = 3
-
-[node name="Pear" parent="." unique_id=1029424776 instance=ExtResource("33_hrrti")]
-position = Vector2(99, -227)
-
-[node name="YellowFleur" parent="." unique_id=1029968855 instance=ExtResource("34_txx3f")]
-position = Vector2(322, -228)
-
-[node name="YellowFleur2" parent="." unique_id=798653056 instance=ExtResource("34_txx3f")]
-position = Vector2(247, -131)
-
-[node name="Apple" parent="." unique_id=1136079555 instance=ExtResource("11_643jo")]
-position = Vector2(241, -253)
-
-[node name="Apple2" parent="." unique_id=176108950 instance=ExtResource("11_643jo")]
-position = Vector2(114, 74)
-
-[node name="Apple3" parent="." unique_id=1772491049 instance=ExtResource("11_643jo")]
-position = Vector2(-59, 129)
-
-[node name="Apple4" parent="." unique_id=1620560455 instance=ExtResource("11_643jo")]
-position = Vector2(-61, 74)
-
-[node name="Apple5" parent="." unique_id=943167251 instance=ExtResource("11_643jo")]
-position = Vector2(203, 100)
-
-[node name="Apple6" parent="." unique_id=547697097 instance=ExtResource("11_643jo")]
-position = Vector2(-35, 123)
-
-[node name="Apple7" parent="." unique_id=1152313008 instance=ExtResource("11_643jo")]
-position = Vector2(364, 135)
-
-[node name="Apple8" parent="." unique_id=1496074719 instance=ExtResource("11_643jo")]
-position = Vector2(-40, 162)
-
-[node name="Apple9" parent="." unique_id=1505215850 instance=ExtResource("11_643jo")]
-position = Vector2(350, 129)
-
-[node name="Apple10" parent="." unique_id=1993296090 instance=ExtResource("11_643jo")]
-position = Vector2(328, -244)
-
-[node name="Apple11" parent="." unique_id=401311894 instance=ExtResource("11_643jo")]
-position = Vector2(360, -346)
-
-[node name="Pear2" parent="." unique_id=1521082104 instance=ExtResource("33_hrrti")]
-position = Vector2(126, -137)
-
-[node name="Pear3" parent="." unique_id=1771341851 instance=ExtResource("33_hrrti")]
-position = Vector2(32, 211)
-
-[node name="Pear4" parent="." unique_id=1449393433 instance=ExtResource("33_hrrti")]
-position = Vector2(-18, 248)
-
-[node name="Pear5" parent="." unique_id=1514792919 instance=ExtResource("33_hrrti")]
-position = Vector2(157, 347)
-
-[node name="YellowFleur3" parent="." unique_id=41227374 instance=ExtResource("34_txx3f")]
-position = Vector2(144, 323)
-
-[node name="YellowFleur4" parent="." unique_id=1367344518 instance=ExtResource("34_txx3f")]
-position = Vector2(189, 333)
-
-[node name="YellowFleur6" parent="." unique_id=1176008945 instance=ExtResource("34_txx3f")]
-position = Vector2(496, 91)
-
-[node name="YellowFleur7" parent="." unique_id=2106562567 instance=ExtResource("34_txx3f")]
-position = Vector2(309, 140)
-
-[node name="YellowFleur8" parent="." unique_id=185231884 instance=ExtResource("34_txx3f")]
-position = Vector2(158, 158)
-
-[node name="YellowFleur9" parent="." unique_id=301706358 instance=ExtResource("34_txx3f")]
-position = Vector2(81, 182)
-
-[node name="YellowFleur10" parent="." unique_id=2059156627 instance=ExtResource("34_txx3f")]
-position = Vector2(129, 237)
-
-[node name="Apple12" parent="." unique_id=189327614 instance=ExtResource("11_643jo")]
-position = Vector2(-522, -116)
-
-[node name="Apple13" parent="." unique_id=611393480 instance=ExtResource("11_643jo")]
-position = Vector2(-437, 12)
-
-[node name="Apple14" parent="." unique_id=669743390 instance=ExtResource("11_643jo")]
-position = Vector2(-444, -241)
-
-[node name="Apple15" parent="." unique_id=2119974546 instance=ExtResource("11_643jo")]
-position = Vector2(-560, -150)
-
-[node name="Apple16" parent="." unique_id=1212122816 instance=ExtResource("11_643jo")]
-position = Vector2(-482, -140)
-
-[node name="Pear6" parent="." unique_id=1051815590 instance=ExtResource("33_hrrti")]
-position = Vector2(98, 28)
-
-[node name="Chicken" parent="." unique_id=775685339 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(-183, -193)
-
-[node name="Chicken2" parent="." unique_id=373349891 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(205, -165)
-
-[node name="Chicken3" parent="." unique_id=803197160 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(270, -189)
-
-[node name="Chicken4" parent="." unique_id=808460597 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(215, 219)
-
-[node name="Chicken5" parent="." unique_id=1254964099 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(36, 78)
-
-[node name="Chicken6" parent="." unique_id=1222131190 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(167, -42)
-
-[node name="Chicken7" parent="." unique_id=1241778839 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(-364, -240)
-
-[node name="Chicken8" parent="." unique_id=1110045203 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(-232, -27)
-
-[node name="Chicken9" parent="." unique_id=1994150509 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(168, 339)
-
-[node name="Chicken10" parent="." unique_id=1054337965 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(365, 327)
-
-[node name="Chicken11" parent="." unique_id=1331313043 groups=["animals", "chickens"] instance=ExtResource("28_52gom")]
-position = Vector2(462, 64)
-
-[node name="CowHerdable" parent="." unique_id=171070726 node_paths=PackedStringArray("navigation_region") instance=ExtResource("32_hrrti")]
-position = Vector2(-376, -88)
-navigation_region = NodePath("../NavigationRegion2D")
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1558688391]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_643jo")
 
-[node name="CowHerdable2" parent="." unique_id=1245950768 node_paths=PackedStringArray("navigation_region") instance=ExtResource("32_hrrti")]
-position = Vector2(-395, -116)
-navigation_region = NodePath("../NavigationRegion2D")
-
-[node name="CowHerdable3" parent="." unique_id=1145862563 node_paths=PackedStringArray("navigation_region") instance=ExtResource("32_hrrti")]
-position = Vector2(-374, -139)
-navigation_region = NodePath("../NavigationRegion2D")
-
-[node name="CowHerdable4" parent="." unique_id=1320082858 node_paths=PackedStringArray("navigation_region") instance=ExtResource("32_hrrti")]
-position = Vector2(-341, -100)
-navigation_region = NodePath("../NavigationRegion2D")
-
-[node name="CowHerdable5" parent="." unique_id=1208513473 node_paths=PackedStringArray("navigation_region") instance=ExtResource("32_hrrti")]
-position = Vector2(-388, -172)
-navigation_region = NodePath("../NavigationRegion2D")
-
-[node name="bb_cow" parent="." unique_id=348855057 instance=ExtResource("25_vgcik")]
-position = Vector2(-374, -210)
-
-[node name="bb_cow2" parent="." unique_id=1589812816 instance=ExtResource("25_vgcik")]
-position = Vector2(-338, -208)
+[node name="FlowerGirl" parent="." unique_id=1168105389 instance=ExtResource("25_vgcik")]
+position = Vector2(127, -63)

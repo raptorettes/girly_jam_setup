@@ -1,0 +1,13 @@
+cats slice to 64x64
+
+background 96x96 slice to 48x48
+
+
+You may use these assets in personal and commercial projects.
+You may modify the assets to fit your project needs.
+(Aseprite files are included)
+You may NOT resell, redistribute, or reupload these assets.
+You may NOT sell modified versions of these assets as standalone asset packs.
+Modifications are allowed only for use within your own projects.
+
+Credit is appreciated but not required.
