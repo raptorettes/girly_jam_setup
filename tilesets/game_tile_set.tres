@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3ex8c4x6jcwd" path="res://assets/Tilesets/ground tiles/New tiles/Grass_Tile_Layers.png" id="3_uk42g"]
 [ext_resource type="Texture2D" uid="uid://cxtbchbqvjsx2" path="res://assets/Tilesets/ground tiles/New tiles/Tilled_Dirt_Wide_v2.png" id="3_v1amf"]
 [ext_resource type="Texture2D" uid="uid://d2u06p1ysaeqq" path="res://assets/Objects/Basic Grass Biom things 1.png" id="4_7cqdy"]
-[ext_resource type="Texture2D" path="res://assets/HelpKelp/bg.png" id="4_yewih"]
+[ext_resource type="Texture2D" uid="uid://6tma7a42pwgh" path="res://assets/HelpKelp/bg.png" id="4_yewih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkbyn"]
 texture = ExtResource("1_tjtrf")

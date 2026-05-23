@@ -21,7 +21,7 @@ position = Vector2(-1, 6)
 shape = SubResource("CircleShape2D_fioft")
 
 [node name="GrowthTimer" type="Timer" parent="." unique_id=2049160871]
-wait_time = 20.0
+wait_time = 5.0
 
 [node name="UrchinSpawnTimer" type="Timer" parent="." unique_id=1135263257]
 wait_time = 20.0

@@ -10,7 +10,7 @@ var growth_stage := 0
 
 func _ready():
 	sprite.texture = algae_sprites[0]
-	growth_timer.wait_time = 20.0
+	growth_timer.wait_time = 5.0
 	growth_timer.start()
 	urchin_timer.wait_time = 30.0
 	urchin_timer.one_shot = true
