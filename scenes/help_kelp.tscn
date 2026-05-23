@@ -219,6 +219,13 @@ text = "Yay!"
 [node name="Node2D" type="Node2D" parent="." unique_id=250555126]
 position = Vector2(319, 248)
 
+[node name="BehaviorTreeView" type="BehaviorTreeView" parent="." unique_id=1569743009]
+offset_left = 524.00006
+offset_top = 82.0
+offset_right = 693.00006
+offset_bottom = 458.0
+scale = Vector2(0.95725846, 0.7333675)
+
 [connection signal="pressed" from="CanvasLayer/UrchinPopup/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="on_button_allow_urchins"]
 [connection signal="pressed" from="CanvasLayer/UrchinPopup/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_urchin_no_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/CrabPopup/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="on_button_allow_crabs"]
