@@ -19,9 +19,4 @@ func _on_growth_timer_timeout():
 		growth_stage += 1
 		sprite.texture = urchin_sprites[growth_stage]
 	if growth_stage == 2:
-		growth_timer.stop()  # fully grown, stop timer
-
-
-#
-#func _on_urchin_spawn_timer_timeout() -> void:
-	#GameManager.spawn_urchin(global_position)
+		growth_timer.stop() 
