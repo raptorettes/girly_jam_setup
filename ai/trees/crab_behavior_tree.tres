@@ -1,13 +1,12 @@
 [gd_resource type="BehaviorTree" format=3 uid="uid://cf0sbspbic4so"]
 
-[ext_resource type="Script" uid="uid://dhiykdl20d2xg" path="res://ai/tasks/actions/bt_wander_crab.gd" id="1_qfpwi"]
-[ext_resource type="Script" uid="uid://dcffau3hixt3m" path="res://ai/tasks/actions/bt_move_to_target.gd" id="2_wmbic"]
+[ext_resource type="Script" uid="uid://dbxhf1fyfaqos" path="res://ai/tasks/actions/bt_find_algae.gd" id="1_qfpwi"]
+[ext_resource type="Script" uid="uid://cvkfc40k27spl" path="res://ai/tasks/actions/move_to_algae.gd" id="2_wmbic"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ow7wl"]
 
 [sub_resource type="BTAction" id="BTAction_hu6oh"]
 script = ExtResource("1_qfpwi")
-wander_radius = 50.0
 
 [sub_resource type="BTAction" id="BTAction_rl1hi"]
 script = ExtResource("2_wmbic")

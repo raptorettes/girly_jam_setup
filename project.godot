@@ -49,6 +49,7 @@ attraction_point=""
 pickup_item=""
 chests=""
 nav_group=""
+algae=""
 
 [gui]
 

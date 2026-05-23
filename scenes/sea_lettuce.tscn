@@ -14,7 +14,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fioft"]
 radius = 20.22375
 
-[node name="Lettuce" type="Node2D" unique_id=608925357 node_paths=PackedStringArray("sprite", "growth_timer", "urchin_timer")]
+[node name="Lettuce" type="Node2D" unique_id=608925357 node_paths=PackedStringArray("sprite", "growth_timer", "urchin_timer") groups=["algae"]]
 script = ExtResource("1_342rj")
 algae_sprites = Array[Texture2D]([ExtResource("2_f6een"), ExtResource("3_pj6su"), ExtResource("4_idap4")])
 urchin_scene = ExtResource("5_8unbw")
