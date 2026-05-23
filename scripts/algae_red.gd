@@ -7,10 +7,9 @@ signal urchin_count_update(amount: int)
 @export var urchin_scene: PackedScene
 @export var urchin_sprites: Array[Texture2D] 
 
-
-@onready var sprite := $AlgaeSprite
-@onready var growth_timer := $GrowthTimer
-@onready var urchin_timer := $UrchinSpawnTimer
+@export var sprite: Sprite2D
+@export var growth_timer: Timer
+@export var urchin_timer: Timer
 
 var growth_stage := 0
 var urchin_popuplation:= 0
@@ -20,8 +19,8 @@ func _ready():
 	growth_timer.wait_time = 5.0
 	growth_timer.start()
 	urchin_timer.wait_time = 5.0
-	#urchin_timer.one_shot = true
 	urchin_timer.start()
+
 
 func _on_growth_timer_timeout():
 	if growth_stage < 2:
@@ -32,7 +31,6 @@ func _on_growth_timer_timeout():
 
 
 func _on_urchin_spawn_timer_timeout() -> void:
-	print("timeot")
 	if Globals.allow_urchins:
 		spawn_urchin()
 	
