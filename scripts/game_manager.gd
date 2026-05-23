@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var algae_scene: PackedScene
+@export var algae_scenes: Array[PackedScene]
 @export var crab_scene: PackedScene
 @export var urchin_popup: PanelContainer
 @export var crab_popup: PanelContainer
@@ -34,7 +34,7 @@ func _unhandled_input(event):
 
 
 func spawn_algae(pos: Vector2):
-	var algae: Algae = algae_scene.instantiate()
+	var algae: Algae = algae_scenes[randi_range(0,algae_scenes.size())-1].instantiate()
 	algae.global_position = pos
 	algae.urchin_count_update.connect(update_urchin_count)
 	$Creatures.add_child(algae)

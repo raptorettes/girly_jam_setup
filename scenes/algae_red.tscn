@@ -14,11 +14,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fioft"]
 radius = 20.22375
 
-[node name="Algae" type="Node2D" unique_id=608925357]
+[node name="Algae" type="Node2D" unique_id=608925357 node_paths=PackedStringArray("sprite", "growth_timer", "urchin_timer")]
 script = ExtResource("2_sp1k5")
 algae_sprites = Array[Texture2D]([ExtResource("1_3bfel"), ExtResource("3_fioft"), ExtResource("4_uru7f")])
 urchin_scene = ExtResource("5_uru7f")
 urchin_sprites = Array[Texture2D]([ExtResource("6_a63is"), ExtResource("7_njol4"), ExtResource("8_i0a0y"), ExtResource("9_36pqh"), ExtResource("10_7muxo")])
+sprite = NodePath("AlgaeSprite")
+growth_timer = NodePath("GrowthTimer")
+urchin_timer = NodePath("UrchinSpawnTimer")
 
 [node name="AlgaeSprite" type="Sprite2D" parent="." unique_id=43335913]
 
@@ -29,7 +32,6 @@ position = Vector2(-1, 6)
 shape = SubResource("CircleShape2D_fioft")
 
 [node name="GrowthTimer" type="Timer" parent="." unique_id=2049160871]
-wait_time = 5.0
 
 [node name="UrchinSpawnTimer" type="Timer" parent="." unique_id=1135263257]
 
