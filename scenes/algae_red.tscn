@@ -4,6 +4,12 @@
 [ext_resource type="Script" uid="uid://baduxatx567ee" path="res://scripts/algae_red.gd" id="2_sp1k5"]
 [ext_resource type="Texture2D" uid="uid://cd58s88cohvvo" path="res://assets/kelp_helper/Kelp_1.png" id="3_fioft"]
 [ext_resource type="Texture2D" uid="uid://esf88kugce4p" path="res://assets/kelp_helper/Kelp_2.png" id="4_uru7f"]
+[ext_resource type="PackedScene" uid="uid://dd1hh60234fp" path="res://scenes/urchin.tscn" id="5_uru7f"]
+[ext_resource type="Texture2D" uid="uid://w5sj21e7emc6" path="res://assets/kelp_helper/urchin-3.png" id="6_a63is"]
+[ext_resource type="Texture2D" uid="uid://b4bss0xjq8ljw" path="res://assets/kelp_helper/urchin-6.png" id="7_njol4"]
+[ext_resource type="Texture2D" uid="uid://c8ufc1y7kypcn" path="res://assets/kelp_helper/urchin-4.png" id="8_i0a0y"]
+[ext_resource type="Texture2D" uid="uid://lqf23pb218fv" path="res://assets/kelp_helper/urchin-1.png" id="9_36pqh"]
+[ext_resource type="Texture2D" uid="uid://csf63o5ulylph" path="res://assets/kelp_helper/urchin-5.png" id="10_7muxo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fioft"]
 radius = 20.22375
@@ -11,6 +17,8 @@ radius = 20.22375
 [node name="Algae" type="Node2D" unique_id=608925357]
 script = ExtResource("2_sp1k5")
 algae_sprites = Array[Texture2D]([ExtResource("1_3bfel"), ExtResource("3_fioft"), ExtResource("4_uru7f")])
+urchin_scene = ExtResource("5_uru7f")
+urchin_sprites = Array[Texture2D]([ExtResource("6_a63is"), ExtResource("7_njol4"), ExtResource("8_i0a0y"), ExtResource("9_36pqh"), ExtResource("10_7muxo")])
 
 [node name="AlgaeSprite" type="Sprite2D" parent="." unique_id=43335913]
 
@@ -24,7 +32,6 @@ shape = SubResource("CircleShape2D_fioft")
 wait_time = 5.0
 
 [node name="UrchinSpawnTimer" type="Timer" parent="." unique_id=1135263257]
-wait_time = 20.0
-one_shot = true
 
 [connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]
+[connection signal="timeout" from="UrchinSpawnTimer" to="." method="_on_urchin_spawn_timer_timeout"]
