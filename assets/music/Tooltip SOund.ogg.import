@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7blw7dpoikg7"
+path="res://.godot/imported/Tooltip SOund.ogg-5a8e1d8223423d8ed776e71246f7a5eb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Tooltip SOund.ogg"
+dest_files=["res://.godot/imported/Tooltip SOund.ogg-5a8e1d8223423d8ed776e71246f7a5eb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

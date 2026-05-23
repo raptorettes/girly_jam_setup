@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d4hs6pl27ocqv"
+path="res://.godot/imported/Kelp Sound1.ogg-434a0c596c79cb3249ba11ad73d5e708.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Kelp Sound1.ogg"
+dest_files=["res://.godot/imported/Kelp Sound1.ogg-434a0c596c79cb3249ba11ad73d5e708.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

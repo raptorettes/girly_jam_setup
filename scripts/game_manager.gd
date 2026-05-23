@@ -8,7 +8,7 @@ extends Node2D
 
 @export var urchin_wants_algae:= 5
 @export var crab_wants_urchin:= 25
-@export var mermaids_want_crabs:= 5
+@export var mermaids_want_crabs:= 3
 
 var showing_menu: bool = false
 

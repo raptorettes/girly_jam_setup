@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3x4h63ypfae3"
+path="res://.godot/imported/WATER Click.ogg-086b58efe0b1edac5c03bf889de4d6a8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/WATER Click.ogg"
+dest_files=["res://.godot/imported/WATER Click.ogg-086b58efe0b1edac5c03bf889de4d6a8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

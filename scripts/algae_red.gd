@@ -3,13 +3,15 @@ class_name Algae
 
 signal urchin_count_update(amount: int)
 
-@export var algae_sprites: Array[Texture2D] 
+@export var algae_sprites: Array[Texture2D]
+@export var sick_sprite: Texture2D
 @export var urchin_scene: PackedScene
 @export var urchin_sprites: Array[Texture2D] 
 
 @export var sprite: Sprite2D
 @export var growth_timer: Timer
 @export var urchin_timer: Timer
+@export var urchins_node: Node2D
 
 var growth_stage := 0
 var urchin_popuplation:= 0
@@ -36,14 +38,29 @@ func _on_urchin_spawn_timer_timeout() -> void:
 	
 
 func spawn_urchin() -> void:
-	var urchin: Urchin = urchin_scene.instantiate()
-	add_child(urchin)
-	urchin.sprite.texture = urchin_sprites[urchin_popuplation]
-	urchin_popuplation+=1
-	urchin_count_update.emit(1)
 	if urchin_popuplation == 5:
+		sprite.texture = sick_sprite
 		urchin_timer.stop()
+		return
+	if urchin_popuplation < 5:
+		sprite.texture = algae_sprites.back()
+	var urchin: Urchin = urchin_scene.instantiate()
+	urchins_node.add_child(urchin)
+	urchin.sprite.texture = urchin_sprites[urchin_popuplation]
+	urchin_count_update.emit(1)
+	urchin_popuplation+=1
 
-func urchin_eaten():
-	urchin_count_update.emit(-1)
-	##TODO
+
+func kill_urchin() -> void:
+	if urchin_popuplation > 0:
+		urchins_node.get_child(0).queue_free()
+		urchin_popuplation -=1
+		urchin_count_update.emit(-1)
+		urchin_timer.wait_time*=1.5
+
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	kill_urchin()
+
+func _on_area_2d_body_exited(_body: Node2D) -> void:
+	urchin_timer.start()

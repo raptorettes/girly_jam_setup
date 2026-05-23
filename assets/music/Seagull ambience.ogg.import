@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ywlck6qot5d5"
+path="res://.godot/imported/Seagull ambience.ogg-4701bdbe348d11dd965bf597b712e7be.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Seagull ambience.ogg"
+dest_files=["res://.godot/imported/Seagull ambience.ogg-4701bdbe348d11dd965bf597b712e7be.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
