@@ -1,7 +1,7 @@
 [gd_resource type="BehaviorTree" format=3 uid="uid://cf0sbspbic4so"]
 
 [ext_resource type="Script" path="res://ai/tasks/actions/bt_find_algae.gd" id="1_qfpwi"]
-[ext_resource type="Script" path="res://ai/tasks/actions/move_to_algae.gd" id="2_wmbic"]
+[ext_resource type="Script" uid="uid://cvkfc40k27spl" path="res://ai/tasks/actions/move_to_algae.gd" id="2_wmbic"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ow7wl"]
 

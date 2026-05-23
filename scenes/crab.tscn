@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://p6m2v3nodg6c"]
 
 [ext_resource type="Texture2D" uid="uid://cj0dajbpat2oh" path="res://assets/kelp_helper/crab.png" id="1_ow7wl"]
-[ext_resource type="Script" uid="uid://cym8y4avlws7c" path="res://scripts/crab.gd" id="1_rq6vx"]
+[ext_resource type="Script" path="res://scripts/crab.gd" id="1_rq6vx"]
 [ext_resource type="BehaviorTree" uid="uid://cf0sbspbic4so" path="res://ai/trees/crab_behavior_tree.tres" id="2_2b8bq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b8bq"]

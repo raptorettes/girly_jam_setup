@@ -5,10 +5,10 @@ extends Node2D
 @export var urchin_popup: PanelContainer
 @export var crab_popup: PanelContainer
 @export var final_popup: PanelContainer
-
-@export var urchin_wants_algae:= 5
-@export var crab_wants_urchin:= 25
-@export var mermaids_want_crabs:= 3
+@export var click_sound: AudioStreamPlayer
+@export var urchin_wants_algae:= 3
+@export var crab_wants_urchin:= 15
+@export var mermaids_want_crabs:= 2
 
 var showing_menu: bool = false
 
@@ -28,6 +28,7 @@ func _ready():
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
+		click_sound.play()
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			place_position = get_global_mouse_position()
 			spawn_algae(place_position)
@@ -52,7 +53,7 @@ func update_urchin_count(amount: int):
 
 func spawn_crab():
 	var crab = crab_scene.instantiate()
-	crab.global_position = global_position #TODO make it spawn somewhere randomly?
+	crab.global_position = Vector2(100,100)
 	$Creatures.add_child(crab)
 	total_crab_count += 1
 	check_game_state(WHAT.crab)
