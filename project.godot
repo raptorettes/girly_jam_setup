@@ -10,43 +10,27 @@ config_version=5
 
 [application]
 
-config/name="wild-thyme_BLANK"
-run/main_scene="uid://rftcf6km7fmx"
+config/name="Help Kelp"
+run/main_scene="uid://de75edr73t1g1"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.60784316, 0.83137256, 0.7647059, 1)
-boot_splash/image="uid://dgve4q1guiw1t"
 config/icon="res://icon.svg"
-
-[autoload]
-
-MusicManager="*uid://c3yww0o1sw16k"
-NightManager="*uid://1pn34hgwfjsn"
-DialogueBox="*uid://dotcec1xg4smu"
-NightOverlay="*uid://si32fjl5d70g"
-GameManager="*uid://o2h8573jvc7n"
-CursorManager="*uid://dosb3u53hyi76"
-HerdManager="*uid://rv0k86ghxxv8"
-GameEvents="*uid://bl1h2dxje4asp"
-DayCounter="*uid://wwp1lj81bytu"
-Inventory="*uid://dcvmrm3ml03ux"
-MessageBox="*uid://xxn6xbwbrxe0"
-GatePrompt="*uid://ul8oiq86jiox"
-PhantomCameraManager="*uid://duq6jhf6unyis"
-SaveManager="*uid://bvqc3crh40h7j"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=640
+window/size/viewport_height=320
+window/size/mode=2
 window/size/initial_position_type=4
-window/stretch/aspect="ignore"
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://bxyuwrr4nqkas"
 mouse_cursor/custom_image_hotspot=Vector2(24, 0)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/sprout_lands_ui/plugin.cfg")
 
 [global_group]
 
@@ -61,6 +45,10 @@ attraction_point=""
 pickup_item=""
 chests=""
 nav_group=""
+
+[gui]
+
+theme/custom="res://ui_assets/sprout_lands_theme.tres"
 
 [input]
 
@@ -196,3 +184,8 @@ renderer/rendering_method.mobile="gl_compatibility"
 viewport/hdr_2d=true
 anti_aliasing/quality/msaa_2d=2
 anti_aliasing/quality/use_debanding=true
+
+[sprout_lands_ui]
+
+disable_plugin_dialogues=true
+copy_path="res://ui_assets"

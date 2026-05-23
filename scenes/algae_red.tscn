@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cfd3gcvqvuggs"]
+
+[ext_resource type="Texture2D" uid="uid://dplkdi1pyk5af" path="res://assets/kelp_helper/Kelp_0.png" id="1_3bfel"]
+[ext_resource type="Script" uid="uid://baduxatx567ee" path="res://scripts/algae_red.gd" id="2_sp1k5"]
+[ext_resource type="Texture2D" uid="uid://cd58s88cohvvo" path="res://assets/kelp_helper/Kelp_1.png" id="3_fioft"]
+[ext_resource type="Texture2D" uid="uid://esf88kugce4p" path="res://assets/kelp_helper/Kelp_2.png" id="4_uru7f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fioft"]
+radius = 20.22375
+
+[node name="Algae" type="Node2D" unique_id=608925357]
+script = ExtResource("2_sp1k5")
+algae_sprites = Array[Texture2D]([ExtResource("1_3bfel"), ExtResource("3_fioft"), ExtResource("4_uru7f")])
+
+[node name="AlgaeSprite" type="Sprite2D" parent="." unique_id=43335913]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1905838589]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1745051315]
+position = Vector2(-1, 6)
+shape = SubResource("CircleShape2D_fioft")
+
+[node name="GrowthTimer" type="Timer" parent="." unique_id=2049160871]
+wait_time = 20.0
+
+[node name="UrchinSpawnTimer" type="Timer" parent="." unique_id=1135263257]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]

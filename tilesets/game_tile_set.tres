@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3ex8c4x6jcwd" path="res://assets/Tilesets/ground tiles/New tiles/Grass_Tile_Layers.png" id="3_uk42g"]
 [ext_resource type="Texture2D" uid="uid://cxtbchbqvjsx2" path="res://assets/Tilesets/ground tiles/New tiles/Tilled_Dirt_Wide_v2.png" id="3_v1amf"]
 [ext_resource type="Texture2D" uid="uid://d2u06p1ysaeqq" path="res://assets/Objects/Basic Grass Biom things 1.png" id="4_7cqdy"]
+[ext_resource type="Texture2D" path="res://assets/HelpKelp/bg.png" id="4_yewih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkbyn"]
 texture = ExtResource("1_tjtrf")
@@ -95,6 +96,13 @@ texture = ExtResource("3_uk42g")
 5:1/0 = 0
 5:2/0 = 0
 4:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yb5x"]
+texture = ExtResource("4_yewih")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1amf"]
 texture = ExtResource("2_tkbyn")
@@ -588,9 +596,10 @@ terrain_set_0/terrain_0/name = "Grass Terrain"
 terrain_set_0/terrain_0/color = Color(0.5019608, 0.7058824, 0.2509804, 1)
 terrain_set_0/terrain_1/name = "Tilled Dirt Terrain"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_tkbyn")
-sources/5 = SubResource("TileSetAtlasSource_v1amf")
-sources/6 = SubResource("TileSetAtlasSource_7cqdy")
 sources/7 = SubResource("TileSetAtlasSource_pudl8")
-sources/1 = SubResource("TileSetAtlasSource_uk42g")
+sources/5 = SubResource("TileSetAtlasSource_v1amf")
+sources/3 = SubResource("TileSetAtlasSource_8yb5x")
 sources/2 = SubResource("TileSetAtlasSource_yewih")
+sources/1 = SubResource("TileSetAtlasSource_uk42g")
+sources/0 = SubResource("TileSetAtlasSource_tkbyn")
+sources/6 = SubResource("TileSetAtlasSource_7cqdy")
