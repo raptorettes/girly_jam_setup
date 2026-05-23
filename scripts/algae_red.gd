@@ -1,6 +1,9 @@
 extends Node2D
+class_name Algae
 
+signal urchin_count_update(amount: int)
 @export var algae_sprites: Array[Texture2D] 
+@export var urchin_scene: PackedScene
 
 var growth_stage := 0
 
@@ -24,6 +27,13 @@ func _on_growth_timer_timeout():
 		growth_timer.stop()  # fully grown, stop timer
 
 
-#
-#func _on_urchin_spawn_timer_timeout() -> void:
-	#GameManager.spawn_urchin(global_position)
+func _on_urchin_spawn_timer_timeout() -> void:
+	spawn_urchin()
+
+func spawn_urchin() -> void:
+	var urchin = urchin_scene.instantiate()
+	add_child(urchin)
+	urchin_count_update.emit(1)
+
+func urchin_eaten():
+	urchin_count_update.emit(-1)
