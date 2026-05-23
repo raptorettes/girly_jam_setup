@@ -1,4 +1,3 @@
-@tool
 extends BTAction
 
 var _started := false

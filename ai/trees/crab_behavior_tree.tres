@@ -7,17 +7,17 @@
 
 [sub_resource type="BTAction" id="BTAction_hu6oh"]
 script = ExtResource("1_qfpwi")
-wander_radius = 200.0
+wander_radius = 50.0
 
 [sub_resource type="BTAction" id="BTAction_rl1hi"]
 script = ExtResource("2_wmbic")
 
-[sub_resource type="BTSequence" id="BTSequence_xdoes"]
+[sub_resource type="BTSequence" id="BTSequence_qfpwi"]
 children = [SubResource("BTAction_hu6oh"), SubResource("BTAction_rl1hi")]
 
 [sub_resource type="BTRepeat" id="BTRepeat_p5iod"]
 forever = true
-children = [SubResource("BTSequence_xdoes")]
+children = [SubResource("BTSequence_qfpwi")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_ow7wl")

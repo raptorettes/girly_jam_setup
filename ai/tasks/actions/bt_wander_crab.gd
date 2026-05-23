@@ -1,7 +1,6 @@
-@tool
 extends BTAction
 
-@export var wander_radius: float = 10.0
+@export var wander_radius: float = 200.0
 
 func _tick(delta: float) -> Status:
 	var crab = agent as CharacterBody2D
@@ -12,3 +11,4 @@ func _tick(delta: float) -> Status:
 	var target = crab.global_position + random_offset
 	blackboard.set_var("wander_target", target)
 	return SUCCESS
+	
