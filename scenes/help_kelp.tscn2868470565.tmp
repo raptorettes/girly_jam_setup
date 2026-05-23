@@ -83,9 +83,9 @@ theme = ExtResource("7_3bmqp")
 layout_mode = 2
 theme = ExtResource("7_3bmqp")
 
-[node name="AlgaeSlot" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=1950707965]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=1950707965]
 layout_mode = 2
 theme = ExtResource("7_3bmqp")
 texture_normal = ExtResource("8_3bmqp")
 
-[connection signal="button_down" from="CanvasLayer/PanelContainer/HBoxContainer/AlgaeSlot" to="." method="_on_algae_slot_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_button_down"]

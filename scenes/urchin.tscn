@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dd1hh60234fp"]
+
+[ext_resource type="Script" uid="uid://cikp0yvmxarp3" path="res://scripts/urchin.gd" id="1_0xpsw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fioft"]
+radius = 20.22375
+
+[node name="Urchin" type="Node2D" unique_id=608925357]
+script = ExtResource("1_0xpsw")
+
+[node name="UrchinSprite" type="Sprite2D" parent="." unique_id=43335913]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1905838589]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1745051315]
+position = Vector2(-1, 6)
+shape = SubResource("CircleShape2D_fioft")
+
+[node name="GrowthTimer" type="Timer" parent="." unique_id=2049160871]
+wait_time = 5.0
