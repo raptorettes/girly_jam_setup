@@ -46,7 +46,7 @@ func spawn_urchin() -> void:
 		sprite.texture = algae_sprites.back()
 	var urchin: Urchin = urchin_scene.instantiate()
 	urchins_node.add_child(urchin)
-	urchin.sprite.texture = urchin_sprites[urchin_popuplation]
+	urchin.sprite.texture = urchin_sprites.pick_random()
 	urchin_count_update.emit(1)
 	urchin_popuplation+=1
 
@@ -56,7 +56,7 @@ func kill_urchin() -> void:
 		urchins_node.get_child(0).queue_free()
 		urchin_popuplation -=1
 		urchin_count_update.emit(-1)
-		urchin_timer.wait_time*=1.5
+
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
