@@ -6,61 +6,74 @@ signal urchin_count_update(amount: int)
 @export var algae_sprites: Array[Texture2D]
 @export var sick_sprite: Texture2D
 @export var urchin_scene: PackedScene
-@export var urchin_sprites: Array[Texture2D] 
-
+@export var urchin_sprites: Array[Texture2D]
 @export var sprite: Sprite2D
 @export var growth_timer: Timer
 @export var urchin_timer: Timer
 @export var urchins_node: Node2D
 
 var growth_stage := 0
-var urchin_popuplation:= 0
+var urchin_population := 0
+const MAX_URCHINS = 5
+const URCHIN_SPREAD = 12.0
 
-func _ready():
+func _ready() -> void:
+	add_to_group("algae")
 	sprite.texture = algae_sprites[0]
 	growth_timer.wait_time = 5.0
 	growth_timer.start()
 	urchin_timer.wait_time = 5.0
 	urchin_timer.start()
 
-
-func _on_growth_timer_timeout():
+func _on_growth_timer_timeout() -> void:
 	if growth_stage < 2:
 		growth_stage += 1
 		sprite.texture = algae_sprites[growth_stage]
 	if growth_stage == 2:
-		growth_timer.stop()  # fully grown, stop timer
-
+		growth_timer.stop()
 
 func _on_urchin_spawn_timer_timeout() -> void:
 	if Globals.allow_urchins:
 		spawn_urchin()
-	
 
 func spawn_urchin() -> void:
-	if urchin_popuplation == 5:
+	if urchin_population >= MAX_URCHINS:
 		sprite.texture = sick_sprite
+		remove_from_group("has_urchins")
 		urchin_timer.stop()
 		return
-	if urchin_popuplation < 5:
-		sprite.texture = algae_sprites.back()
+
 	var urchin: Urchin = urchin_scene.instantiate()
+	urchin.parent_algae = self
+	var offset = Vector2(randf_range(-URCHIN_SPREAD, URCHIN_SPREAD),
+						 randf_range(-URCHIN_SPREAD, URCHIN_SPREAD))
+	urchin.position = offset
 	urchins_node.add_child(urchin)
 	urchin.sprite.texture = urchin_sprites.pick_random()
+	urchin_population += 1
 	urchin_count_update.emit(1)
-	urchin_popuplation+=1
+	_update_sprite()
+	_update_groups()
 
-
-func kill_urchin() -> void:
-	if urchin_popuplation > 0:
-		urchins_node.get_child(0).queue_free()
-		urchin_popuplation -=1
+func remove_urchin(urchin: Urchin) -> void:
+	if urchin_population > 0:
+		urchin_population -= 1
 		urchin_count_update.emit(-1)
+		_update_sprite()
+		_update_groups()
+		# Restart spawning if we were sick and now have room
+		if urchin_timer.is_stopped():
+			urchin_timer.wait_time = 5.0
+			urchin_timer.start()
 
+func _update_sprite() -> void:
+	if urchin_population >= MAX_URCHINS:
+		sprite.texture = sick_sprite
+	else:
+		sprite.texture = algae_sprites[min(growth_stage, algae_sprites.size() - 1)]
 
-
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-	kill_urchin()
-
-func _on_area_2d_body_exited(_body: Node2D) -> void:
-	urchin_timer.start()
+func _update_groups() -> void:
+	if urchin_population > 0:
+		add_to_group("has_urchins")
+	else:
+		remove_from_group("has_urchins")

@@ -8,6 +8,7 @@
 size = Vector2(36, 34)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_rq6vx"]
+resource_local_to_scene = true
 
 [node name="Crab" type="CharacterBody2D" unique_id=104254656]
 script = ExtResource("1_rq6vx")
@@ -21,7 +22,10 @@ shape = SubResource("RectangleShape2D_2b8bq")
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=671389381]
 behavior_tree = ExtResource("2_2b8bq")
+update_mode = 0
 blackboard_plan = SubResource("BlackboardPlan_rq6vx")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=636029115]
-target_desired_distance = 20.0
+path_desired_distance = 8.0
+target_desired_distance = 8.0
+path_postprocessing = 1

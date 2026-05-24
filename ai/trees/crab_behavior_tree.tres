@@ -1,7 +1,8 @@
 [gd_resource type="BehaviorTree" format=3 uid="uid://cf0sbspbic4so"]
 
-[ext_resource type="Script" uid="uid://dbxhf1fyfaqos" path="res://ai/tasks/actions/bt_find_algae.gd" id="1_qfpwi"]
-[ext_resource type="Script" uid="uid://cvkfc40k27spl" path="res://ai/tasks/actions/move_to_algae.gd" id="2_wmbic"]
+[ext_resource type="Script" uid="uid://cv1xluvdxr5yb" path="res://ai/tasks/actions/bt_find_urchins.gd" id="1_qfpwi"]
+[ext_resource type="Script" uid="uid://ffj86f5mqv5c" path="res://ai/tasks/actions/bt_move_to_target_gen.gd" id="2_qfpwi"]
+[ext_resource type="Script" uid="uid://yoyl7hy4lnn1" path="res://ai/tasks/actions/bt_eat_gen.gd" id="3_wmbic"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ow7wl"]
 
@@ -9,17 +10,17 @@
 script = ExtResource("1_qfpwi")
 
 [sub_resource type="BTAction" id="BTAction_rl1hi"]
-script = ExtResource("2_wmbic")
+script = ExtResource("2_qfpwi")
 
-[sub_resource type="BTTimeLimit" id="BTTimeLimit_qfpwi"]
-children = [SubResource("BTAction_rl1hi")]
+[sub_resource type="BTAction" id="BTAction_xdoes"]
+script = ExtResource("3_wmbic")
 
-[sub_resource type="BTSequence" id="BTSequence_qfpwi"]
-children = [SubResource("BTAction_hu6oh"), SubResource("BTTimeLimit_qfpwi")]
+[sub_resource type="BTSequence" id="BTSequence_p5iod"]
+children = [SubResource("BTAction_hu6oh"), SubResource("BTAction_rl1hi"), SubResource("BTAction_xdoes")]
 
 [sub_resource type="BTRepeat" id="BTRepeat_p5iod"]
 forever = true
-children = [SubResource("BTSequence_qfpwi")]
+children = [SubResource("BTSequence_p5iod")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_ow7wl")

@@ -7,6 +7,9 @@ const SPEED = 50.0
 var age: int = 0
 var target: Algae 
 
+func _ready():
+	await get_tree().process_frame
+
 func move_to(target_pos: Vector2):
 	nav_agent.target_position = target_pos
 

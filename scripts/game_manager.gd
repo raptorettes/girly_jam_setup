@@ -7,9 +7,10 @@ extends Node2D
 @export var final_popup: PanelContainer
 @export var click_sound: AudioStreamPlayer
 @export var urchin_wants_algae:= 3
-@export var crab_wants_urchin:= 15
-@export var mermaids_want_crabs:= 2
-
+@export var crab_wants_urchin:= 10
+@export var mermaids_want_crabs:= 5
+@export var crab_spawn_threshold: int = 8  # urchins needed per crab
+@export var max_crabs: int = 10
 var showing_menu: bool = false
 
 var total_algae_count:= 0
