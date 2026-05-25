@@ -15,7 +15,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fioft"]
 radius = 20.22375
 
-[node name="Lettuce" type="Node2D" unique_id=608925357 node_paths=PackedStringArray("sprite", "growth_timer", "urchin_timer", "urchins_node") groups=["algae"]]
+[node name="Lettuce" type="Node2D" unique_id=608925357 node_paths=PackedStringArray("sprite", "growth_timer", "urchin_timer", "urchins_node", "recovery_timer") groups=["algae"]]
 script = ExtResource("1_342rj")
 algae_sprites = Array[Texture2D]([ExtResource("2_f6een"), ExtResource("3_pj6su"), ExtResource("4_idap4")])
 sick_sprite = ExtResource("5_osfoj")
@@ -25,6 +25,7 @@ sprite = NodePath("AlgaeSprite")
 growth_timer = NodePath("GrowthTimer")
 urchin_timer = NodePath("UrchinSpawnTimer")
 urchins_node = NodePath("Urchins")
+recovery_timer = NodePath("RecoveryTimer")
 
 [node name="AlgaeSprite" type="Sprite2D" parent="." unique_id=43335913]
 
@@ -39,6 +40,8 @@ shape = SubResource("CircleShape2D_fioft")
 [node name="UrchinSpawnTimer" type="Timer" parent="." unique_id=1135263257]
 
 [node name="Urchins" type="Node2D" parent="." unique_id=257343813]
+
+[node name="RecoveryTimer" type="Timer" parent="." unique_id=582076586]
 
 [connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]
 [connection signal="timeout" from="UrchinSpawnTimer" to="." method="_on_urchin_spawn_timer_timeout"]

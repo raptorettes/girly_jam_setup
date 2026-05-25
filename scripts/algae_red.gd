@@ -11,11 +11,12 @@ signal urchin_count_update(amount: int)
 @export var growth_timer: Timer
 @export var urchin_timer: Timer
 @export var urchins_node: Node2D
+@export var recovery_timer: Timer
 
 var growth_stage := 0
 var urchin_population := 0
 const MAX_URCHINS = 5
-const URCHIN_SPREAD = 12.0
+const URCHIN_SPREAD = 5.0
 
 func _ready() -> void:
 	add_to_group("algae")
@@ -24,6 +25,8 @@ func _ready() -> void:
 	growth_timer.start()
 	urchin_timer.wait_time = 5.0
 	urchin_timer.start()
+	recovery_timer.wait_time = 10.0
+	recovery_timer.one_shot = true
 
 func _on_growth_timer_timeout() -> void:
 	if growth_stage < 2:
@@ -63,8 +66,12 @@ func remove_urchin(urchin: Urchin) -> void:
 		_update_groups()
 		# Restart spawning if we were sick and now have room
 		if urchin_timer.is_stopped():
-			urchin_timer.wait_time = 5.0
-			urchin_timer.start()
+			recovery_timer.start()
+
+func _on_recovery_timer_timeout() -> void:
+	_update_sprite()
+	urchin_timer.wait_time = 5.0
+	urchin_timer.start()
 
 func _update_sprite() -> void:
 	if urchin_population >= MAX_URCHINS:

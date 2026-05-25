@@ -10,7 +10,7 @@ extends Node2D
 @export var crab_wants_urchin:= 10
 @export var mermaids_want_crabs:= 5
 @export var crab_spawn_threshold: int = 8  # urchins needed per crab
-@export var max_crabs: int = 10
+@export var max_crabs: int = 5
 var showing_menu: bool = false
 
 var total_algae_count:= 0
@@ -50,7 +50,14 @@ func update_urchin_count(amount: int):
 	total_urchin_count+= amount
 	if not Globals.allow_crabs:
 		check_game_state(WHAT.urchin)
-
+	else:
+		maybe_spawn_crab()
+		
+func maybe_spawn_crab():
+	if total_crab_count >= max_crabs:
+		return
+	if total_urchin_count >= crab_spawn_threshold * (total_crab_count + 1):
+		spawn_crab()
 
 func spawn_crab():
 	var crab = crab_scene.instantiate()

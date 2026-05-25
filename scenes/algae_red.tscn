@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://lqf23pb218fv" path="res://assets/kelp_helper/urchin-1.png" id="9_36pqh"]
 [ext_resource type="Texture2D" uid="uid://csf63o5ulylph" path="res://assets/kelp_helper/urchin-5.png" id="10_7muxo"]
 
-[node name="Algae" type="Node2D" unique_id=608925357 node_paths=PackedStringArray("sprite", "growth_timer", "urchin_timer", "urchins_node") groups=["algae"]]
+[node name="Algae" type="Node2D" unique_id=608925357 node_paths=PackedStringArray("sprite", "growth_timer", "urchin_timer", "urchins_node", "recovery_timer") groups=["algae"]]
 script = ExtResource("2_sp1k5")
 algae_sprites = Array[Texture2D]([ExtResource("1_3bfel"), ExtResource("3_fioft"), ExtResource("4_uru7f")])
 sick_sprite = ExtResource("5_njol4")
@@ -22,6 +22,7 @@ sprite = NodePath("AlgaeSprite")
 growth_timer = NodePath("GrowthTimer")
 urchin_timer = NodePath("UrchinSpawnTimer")
 urchins_node = NodePath("Urchins")
+recovery_timer = NodePath("RecoveryTimer")
 
 [node name="AlgaeSprite" type="Sprite2D" parent="." unique_id=43335913]
 
@@ -30,6 +31,8 @@ urchins_node = NodePath("Urchins")
 [node name="UrchinSpawnTimer" type="Timer" parent="." unique_id=1135263257]
 
 [node name="Urchins" type="Node2D" parent="." unique_id=1119895552]
+
+[node name="RecoveryTimer" type="Timer" parent="." unique_id=961817944]
 
 [connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]
 [connection signal="timeout" from="UrchinSpawnTimer" to="." method="_on_urchin_spawn_timer_timeout"]
