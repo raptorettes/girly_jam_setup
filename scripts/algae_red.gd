@@ -23,7 +23,7 @@ func _ready() -> void:
 	sprite.texture = algae_sprites[0]
 	growth_timer.wait_time = 5.0
 	growth_timer.start()
-	urchin_timer.wait_time = 5.0
+	urchin_timer.wait_time = 10.0
 	urchin_timer.start()
 	recovery_timer.wait_time = 10.0
 	recovery_timer.one_shot = true
@@ -36,6 +36,7 @@ func _on_growth_timer_timeout() -> void:
 		growth_timer.stop()
 
 func _on_urchin_spawn_timer_timeout() -> void:
+	print("urchin timer fired, population: ", urchin_population)
 	if Globals.allow_urchins:
 		spawn_urchin()
 
@@ -59,14 +60,17 @@ func spawn_urchin() -> void:
 	_update_groups()
 
 func remove_urchin(urchin: Urchin) -> void:
+	print("REMOVE URCHIN CALLED")
+	print("remove_urchin called, population before: ", urchin_population)
 	if urchin_population > 0:
 		urchin_population -= 1
 		urchin_count_update.emit(-1)
+		urchin_timer.stop()  # stop spawning immediately
 		_update_sprite()
 		_update_groups()
-		# Restart spawning if we were sick and now have room
-		if urchin_timer.is_stopped():
-			recovery_timer.start()
+		recovery_timer.start()  # always start recovery, not just when timer stopped
+	else:
+		print("remove_urchin called but population is 0!")
 
 func _on_recovery_timer_timeout() -> void:
 	_update_sprite()

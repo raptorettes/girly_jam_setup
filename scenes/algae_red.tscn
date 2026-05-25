@@ -25,12 +25,15 @@ urchins_node = NodePath("Urchins")
 recovery_timer = NodePath("RecoveryTimer")
 
 [node name="AlgaeSprite" type="Sprite2D" parent="." unique_id=43335913]
+position = Vector2(1, -27)
+texture = ExtResource("4_uru7f")
 
 [node name="GrowthTimer" type="Timer" parent="." unique_id=2049160871]
 
 [node name="UrchinSpawnTimer" type="Timer" parent="." unique_id=1135263257]
 
 [node name="Urchins" type="Node2D" parent="." unique_id=1119895552]
+position = Vector2(1, -27)
 
 [node name="RecoveryTimer" type="Timer" parent="." unique_id=961817944]
 

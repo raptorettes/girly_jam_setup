@@ -11,7 +11,11 @@ extends Node2D
 @export var mermaids_want_crabs:= 5
 @export var crab_spawn_threshold: int = 8  # urchins needed per crab
 @export var max_crabs: int = 5
+
+const SPAWN_MARGIN = 10.0
+
 var showing_menu: bool = false
+
 
 var total_algae_count:= 0
 var total_urchin_count:= 0
@@ -27,12 +31,15 @@ func _ready():
 	show_final_popup(false)
 
 
+
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
-		click_sound.play()
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			place_position = get_global_mouse_position()
-			spawn_algae(place_position)
+			var pos = get_global_mouse_position()
+			pos.x = clamp(pos.x, SPAWN_MARGIN, 440.0)
+			pos.y = clamp(pos.y, SPAWN_MARGIN, 270.0)
+			place_position = pos
+			spawn_algae(pos)
 
 
 func spawn_algae(pos: Vector2):
@@ -41,7 +48,6 @@ func spawn_algae(pos: Vector2):
 	algae.urchin_count_update.connect(update_urchin_count)
 	$Creatures.add_child(algae)
 	total_algae_count += 1
-	print(total_algae_count)
 	if not Globals.allow_urchins:
 		check_game_state(WHAT.algae)
 
@@ -86,7 +92,6 @@ func show_urchin_popup(to_show:bool):
 	urchin_popup.hide()
 	if to_show:
 		urchin_popup.show()
-		print("show urchin popup")
 
 func show_crab_popup(to_show:bool):
 	crab_popup.hide()
@@ -100,7 +105,6 @@ func show_final_popup(to_show:bool):
 
 func on_button_allow_urchins():
 	Globals.allow_urchins = true
-	print(Globals.allow_urchins)
 	show_urchin_popup(false)
 
 func on_button_allow_crabs():

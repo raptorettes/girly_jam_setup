@@ -12,9 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://csf63o5ulylph" path="res://assets/kelp_helper/urchin-5.png" id="9_jqqdr"]
 [ext_resource type="Texture2D" uid="uid://lqf23pb218fv" path="res://assets/kelp_helper/urchin-1.png" id="10_cmq5t"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fioft"]
-radius = 20.22375
-
 [node name="Lettuce" type="Node2D" unique_id=608925357 node_paths=PackedStringArray("sprite", "growth_timer", "urchin_timer", "urchins_node", "recovery_timer") groups=["algae"]]
 script = ExtResource("1_342rj")
 algae_sprites = Array[Texture2D]([ExtResource("2_f6een"), ExtResource("3_pj6su"), ExtResource("4_idap4")])
@@ -28,18 +25,15 @@ urchins_node = NodePath("Urchins")
 recovery_timer = NodePath("RecoveryTimer")
 
 [node name="AlgaeSprite" type="Sprite2D" parent="." unique_id=43335913]
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1905838589]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1745051315]
-position = Vector2(-1, 6)
-shape = SubResource("CircleShape2D_fioft")
+position = Vector2(0, -28)
+texture = ExtResource("4_idap4")
 
 [node name="GrowthTimer" type="Timer" parent="." unique_id=2049160871]
 
 [node name="UrchinSpawnTimer" type="Timer" parent="." unique_id=1135263257]
 
 [node name="Urchins" type="Node2D" parent="." unique_id=257343813]
+position = Vector2(0, -28)
 
 [node name="RecoveryTimer" type="Timer" parent="." unique_id=582076586]
 

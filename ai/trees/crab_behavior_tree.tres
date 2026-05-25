@@ -1,26 +1,69 @@
 [gd_resource type="BehaviorTree" format=3 uid="uid://cf0sbspbic4so"]
 
-[ext_resource type="Script" uid="uid://cv1xluvdxr5yb" path="res://ai/tasks/actions/bt_find_urchins.gd" id="1_qfpwi"]
-[ext_resource type="Script" uid="uid://ffj86f5mqv5c" path="res://ai/tasks/actions/bt_move_to_target_gen.gd" id="2_qfpwi"]
-[ext_resource type="Script" uid="uid://yoyl7hy4lnn1" path="res://ai/tasks/actions/bt_eat_gen.gd" id="3_wmbic"]
+[ext_resource type="Script" uid="uid://cq4m1p64l08jc" path="res://ai/tasks/actions/bt_check_hunger.gd" id="1_hu6oh"]
+[ext_resource type="Script" uid="uid://4tgtkaveq2ea" path="res://ai/tasks/actions/bt_find_food.gd" id="2_rl1hi"]
+[ext_resource type="Script" uid="uid://dcffau3hixt3m" path="res://ai/tasks/actions/bt_move_to_target.gd" id="3_xdoes"]
+[ext_resource type="Script" uid="uid://5pyh5wh2b08d" path="res://ai/tasks/actions/bt_eat.gd" id="4_p5iod"]
+[ext_resource type="Script" uid="uid://swhnfmrtjs0x" path="res://ai/tasks/actions/bt_find_social.gd" id="5_xdoes"]
+[ext_resource type="Script" uid="uid://2po73pl3anve" path="res://ai/tasks/actions/bt_pick_random_location.gd" id="6_p5iod"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ow7wl"]
 
-[sub_resource type="BTAction" id="BTAction_hu6oh"]
-script = ExtResource("1_qfpwi")
+[sub_resource type="BTAction" id="BTAction_qt2sd"]
+script = ExtResource("5_xdoes")
 
-[sub_resource type="BTAction" id="BTAction_rl1hi"]
-script = ExtResource("2_qfpwi")
+[sub_resource type="BTAction" id="BTAction_dl15d"]
+script = ExtResource("3_xdoes")
 
-[sub_resource type="BTAction" id="BTAction_xdoes"]
-script = ExtResource("3_wmbic")
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_xdoes"]
+children = [SubResource("BTAction_dl15d")]
+
+[sub_resource type="BTSequence" id="BTSequence_44204"]
+custom_name = "social"
+children = [SubResource("BTAction_qt2sd"), SubResource("BTTimeLimit_xdoes")]
+_enabled = false
+metadata/_weight_ = 0.6666666666666667
+
+[sub_resource type="BTAction" id="BTAction_44204"]
+script = ExtResource("6_p5iod")
+
+[sub_resource type="BTAction" id="BTAction_5ir6u"]
+script = ExtResource("3_xdoes")
+
+[sub_resource type="BTWait" id="BTWait_xdoes"]
+duration = 2.0
+
+[sub_resource type="BTSequence" id="BTSequence_scdt6"]
+custom_name = "wander"
+children = [SubResource("BTAction_44204"), SubResource("BTAction_5ir6u"), SubResource("BTWait_xdoes")]
+
+[sub_resource type="BTCondition" id="BTCondition_qt2sd"]
+_enabled = false
+script = ExtResource("1_hu6oh")
+
+[sub_resource type="BTAction" id="BTAction_74ept"]
+script = ExtResource("2_rl1hi")
+
+[sub_resource type="BTAction" id="BTAction_u4flp"]
+script = ExtResource("3_xdoes")
+
+[sub_resource type="BTAction" id="BTAction_0kr6k"]
+script = ExtResource("4_p5iod")
+
+[sub_resource type="BTWait" id="BTWait_p5iod"]
+duration = 2.0
 
 [sub_resource type="BTSequence" id="BTSequence_p5iod"]
-children = [SubResource("BTAction_hu6oh"), SubResource("BTAction_rl1hi"), SubResource("BTAction_xdoes")]
+custom_name = "hunt"
+children = [SubResource("BTCondition_qt2sd"), SubResource("BTAction_74ept"), SubResource("BTAction_u4flp"), SubResource("BTAction_0kr6k"), SubResource("BTWait_p5iod")]
+
+[sub_resource type="BTProbabilitySelector" id="BTProbabilitySelector_6nl2u"]
+custom_name = "social or wander"
+children = [SubResource("BTSequence_44204"), SubResource("BTSequence_scdt6"), SubResource("BTSequence_p5iod")]
 
 [sub_resource type="BTRepeat" id="BTRepeat_p5iod"]
 forever = true
-children = [SubResource("BTSequence_p5iod")]
+children = [SubResource("BTProbabilitySelector_6nl2u")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_ow7wl")
